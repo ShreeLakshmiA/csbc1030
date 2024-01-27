@@ -16,8 +16,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Login Docker Hub
+      - name: Checkout
         uses: actions/checkout@v3
+        
+      - name: Login Docker Hub
         env: 
           DOCKER_USERNAME: ${{secrets.DOCKER_REGISTRY_USERNAME}}
           DOCKER_PASSWORD: ${{secrets.DOCKER_REGISTRY_PASSWORD}}
