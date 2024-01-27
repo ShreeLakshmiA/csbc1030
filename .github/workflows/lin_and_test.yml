@@ -24,7 +24,7 @@ jobs:
         DOCKER_PASSWORD: ${{secrets.DOCKER_REGISTRY_PASSWORD}}
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag shreelakshmiathinarayanan/csbc1040docker:0.1
+      run: docker build --file Dockerfile --tag shreelakshmiathinarayanan/csbc1040docker:0.1 .
     - name: Push to Docker Hub
       run: docker push shreelakshmiathinarayanan/csbc1040docker:0.1
 
