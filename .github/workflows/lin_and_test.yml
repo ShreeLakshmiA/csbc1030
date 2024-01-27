@@ -2,17 +2,41 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "dev/csbc1040Final" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "dev/csbc1040Final" ]
+
+env:
+  SERVICE: finalproject
+  REGION: us-east4
+  PROJECT_ID: csbc1040assignment03
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Login Docker Hub
+      env: 
+        DOCKER_USERNAME: ${{secrets.DOCKER_REGISTRY_USERNAME}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_REGISTRY_PASSWORD}}
+      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag shreelakshmiathinarayanan/csbc1040docker:0.1
+    - name: Push to Docker Hub
+      run: docker push shreelakshmiathinarayanan/csbc1040docker:0.1
+
+      - name: Activate Service Account
+        run: gcloud auth activate-service-account --key-file=key.json
+
+      - name: Deploy to Cloud Run
+        id: deploy
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service: ${{ env.SERVICE }}
+          region: ${{ env.REGION }}
+          image: shreelakshmiathinarayanan/csbc1040docker:0.1
+          project_id: ${{ env.PROJECT_ID}}
+
