@@ -74,8 +74,9 @@ INSERT INTO Comment (post_id, text) VALUES
 (1, 'Some Text for post1, comment1'),
 (1, 'Some Text for post1, comment2');
 
-Step 4: To Login, Open the following url in browser for post('/')
-http://localhost:3000/api/users/login
+Step 4: To Login, Open the following url in POSTMAN for ('/')
+POST
+https://finalproject-ncxhm24vrq-uk.a.run.app/api/users/login
 
 Json Body example
 {
@@ -83,17 +84,18 @@ Json Body example
 "password": "123"
 }
 
-Step 5: Open the following url in browser for get('/') - ALL Users
-http://localhost:3000/api/users
+Step 5: Open the following url in POSTMAN for get('/') - ALL Users
+GET
+https://finalproject-ncxhm24vrq-uk.a.run.app/api/users
 
-Step 6: Open the following url in browser for get('/') - ALL Posts
-http://localhost:3000/api/posts
+Step 6: Open the following url in POSTMAN for get('/') - ALL Posts
+https://finalproject-ncxhm24vrq-uk.a.run.app/api/posts
 
-Step 7: Open the following url in browser for get('/:id') - One Post by id
-http://localhost:3000/api/posts/{id}
+Step 7: Open the following url in POSTMAN for get('/:id') - One Post by id
+https://finalproject-ncxhm24vrq-uk.a.run.app/api/posts/{id}
 
-Step 8: Open the following url in browser for post('/') - Create Post
-http://localhost:3000/api/posts
+Step 8: Open the following url in POSTMAN for post('/') - Create Post
+https://finalproject-ncxhm24vrq-uk.a.run.app/api/posts
 
 Json Body example
 {
@@ -101,8 +103,8 @@ Json Body example
 "content": "This is the content of the post"
 }
 
-Step 9: Open the following url in browser for patch('/:id') - Update Post
-http://localhost:3000/api/posts/{id}
+Step 9: Open the following url in POSTMAN for patch('/:id') - Update Post
+https://finalproject-ncxhm24vrq-uk.a.run.app/api/posts/{id}
 
 Json Body example
 {
@@ -110,20 +112,20 @@ Json Body example
 "content": "This is the Edited content of the post"
 }
 
-Step 10: Open the following url in browser for get('/') - ALL Comments for a particular Post
-http://localhost:3000/api/posts/{id}/comments
+Step 10: Open the following url in POSTMAN for get('/') - ALL Comments for a particular Post
+https://finalproject-ncxhm24vrq-uk.a.run.app/api/posts/{id}/comments
 where, {id} -> is the post_id
 
-Step 11: Open the following url in browser for post('/') - Create Comment for a particular Post
-http://localhost:3000/api/posts/{id}/comments
+Step 11: Open the following url in POSTMAN for post('/') - Create Comment for a particular Post
+https://finalproject-ncxhm24vrq-uk.a.run.app/api/posts/{id}/comments
 where, {id} -> is the post_id
 Json Body example
 {
 "text": "Some Text for post1, comment1"
 }
 
-Step 12: Open the following url in browser for patch('/:commentId') - Update one Comment for a particular Post
-http://localhost:3000/api/posts/{id}/comments/{commentId}
+Step 12: Open the following url in POSTMAN for patch('/:commentId') - Update one Comment for a particular Post
+https://finalproject-ncxhm24vrq-uk.a.run.app/api/posts/{id}/comments/{commentId}
 where, {id} -> is the post_id
 {commentId} -> is the comment_id
 Json Body example
@@ -131,8 +133,8 @@ Json Body example
 "text": "Updated Text for post1, comment1"
 }
 
-Step 13: Open the following url in browser for delete('/:commentId') - Delete one Comment for a particular Post
-http://localhost:3000/api/posts/{id}/comments/{commentId}
+Step 13: Open the following url in POSTMAN for delete('/:commentId') - Delete one Comment for a particular Post
+https://finalproject-ncxhm24vrq-uk.a.run.app/api/posts/{id}/comments/{commentId}
 where, {id} -> is the post_id
 {commentId} -> is the comment_id
 
